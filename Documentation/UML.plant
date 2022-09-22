@@ -25,8 +25,9 @@ Valuable <|-- Value
 
 
 class Visitor{
-  visitAdd() : String
-  visitMult() : String
+  visitValue(Value)
+  visitAdd(Add)
+  visitMult(Mult)
   visit...()
 }
 

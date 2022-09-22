@@ -1,5 +1,7 @@
 package Operations;
 
+import Operations.Visitors.Visitor;
+
 public class Value implements Valuable {
     private double value;
 

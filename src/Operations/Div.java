@@ -1,5 +1,7 @@
 package Operations;
 
+import Operations.Visitors.Visitor;
+
 public class Div extends Operation {
     private Valuable a, b;
 

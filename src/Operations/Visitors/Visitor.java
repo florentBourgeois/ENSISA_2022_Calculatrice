@@ -1,4 +1,8 @@
-package Operations;
+package Operations.Visitors;
+
+import Operations.Add;
+import Operations.Valuable;
+import Operations.Value;
 
 public class Visitor {
     public void visitValue(Value v) {
