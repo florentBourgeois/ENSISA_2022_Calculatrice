@@ -1,6 +1,6 @@
 package Operations;
 
-import Operations.Visitors.Visitor;
+import Operations.Visitors.VisiteurRecursifConsole;
 
 public class Mult extends Operation {
     private Valuable a, b;
@@ -17,7 +17,7 @@ public class Mult extends Operation {
     }
 
     @Override
-    public void accept(Visitor visitor) {
+    public void accept(VisiteurRecursifConsole visitor) {
 
     }
 
