@@ -15,6 +15,11 @@ public class Mult extends Operation {
     }
 
     @Override
+    public void accept(Visitor visitor) {
+
+    }
+
+    @Override
     public String toString() {
         return "Mult{" +
                 "left=" + a +

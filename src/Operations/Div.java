@@ -15,6 +15,11 @@ public class Div extends Operation {
     }
 
     @Override
+    public void accept(Visitor visitor) {
+
+    }
+
+    @Override
     public String toString() {
         return "Div{" +
                 "left=" + a +

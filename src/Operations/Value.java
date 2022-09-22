@@ -13,6 +13,11 @@ public class Value implements Valuable {
     }
 
     @Override
+    public void accept(Visitor visitor) {
+        visitor.visitValue(this);
+    }
+
+    @Override
     public String toString() {
         return "Value{" +
                 "value=" + value +

@@ -15,6 +15,11 @@ public class Add extends Operation {
     }
 
     @Override
+    public void accept(Visitor visitor) {
+        visitor.visitAdd(this);
+    }
+
+    @Override
     public String toString() {
         return "Add{" +
                 "left=" + a +

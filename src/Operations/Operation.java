@@ -8,6 +8,13 @@ public abstract class Operation implements Valuable {
         this.b = b;
     }
 
+    public Valuable getA() {
+        return a;
+    }
+
+    public Valuable getB() {
+        return b;
+    }
 
     @Override
     public String toString() {
