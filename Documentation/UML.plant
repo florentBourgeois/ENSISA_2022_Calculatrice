@@ -1,0 +1,35 @@
+plant uml
+
+@startuml
+
+Interface Valuable {
+  getValue() : int
+  accept(Visitor)
+
+}
+
+
+
+Operation <|.. Add
+Operation <|.. Mult
+Operation <|.. Div
+Operation <|.. Sub
+
+
+Valuable <|.. Operation
+Valuable "a" <-- Operation
+Valuable "b" <-- Operation
+
+
+Valuable <|-- Value
+
+
+class Visitor{
+  visitAdd() : String
+  visitMult() : String
+  visit...()
+}
+
+
+
+@enduml
