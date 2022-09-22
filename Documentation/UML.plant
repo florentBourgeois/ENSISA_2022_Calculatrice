@@ -31,6 +31,9 @@ class Visitor{
   visit...()
 }
 
+Visitor .> "<visit>" Valuable
+Visitor "accept" <.  Valuable
+
 
 
 @enduml
