@@ -1,6 +1,6 @@
 package Operations;
 
-import Operations.Visitors.VisiteurRecursifConsole;
+import Operations.Visitors.Visitor;
 
 public class Sub extends Operation {
     private Valuable a, b;
@@ -17,8 +17,8 @@ public class Sub extends Operation {
     }
 
     @Override
-    public void accept(VisiteurRecursifConsole visitor) {
-
+    public void accept(Visitor visitor) {
+        visitor.visitSub(this);
     }
 
     @Override

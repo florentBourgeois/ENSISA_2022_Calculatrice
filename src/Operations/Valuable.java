@@ -1,8 +1,8 @@
 package Operations;
 
-import Operations.Visitors.VisiteurRecursifConsole;
+import Operations.Visitors.Visitor;
 
 public interface Valuable {
     double getValue();
-    void accept(VisiteurRecursifConsole visitor);
+    void accept(Visitor visitor);
 }

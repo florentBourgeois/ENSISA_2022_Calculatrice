@@ -1,15 +1,19 @@
 package Operations;
 
 import Operations.Visitors.VisiteurRecursifConsole;
+import Operations.Visitors.VisiteurSimpleConsole;
+import Operations.Visitors.VisiteurSimpleConsole2;
+import Operations.Visitors.Visitor;
 
 public class Main {
     public static void main(String[] args) {
         mainComposite();
 
-        mainVisitor();
+        mainVisitorUncomplete();
 
+        mainVisitorSimple();
 
-
+        mainVisitorSimpleConsole2();
 
     }
 
@@ -45,16 +49,17 @@ public class Main {
 
     }
 
-    private static void mainVisitor() {
-        System.out.println("---------\n-------\n------------ Visitor ------------" );
+    private static void mainVisitorUncomplete() {
+        System.out.println("---------\n-------\n------------ Visitor Not Complete ------------" );
         System.out.println("Initialisation de l'opération à visiter : ");
         // (3+(4/(2-1)))
         Valuable operation = new Add(new Value(3), new Div(new Value(4), new Sub(new Value(2), new Value(1))));
         System.out.println(operation);
         System.out.println("La valeur de operation est : " +operation.getValue());
 
+        System.out.println("\n---------------------------------\n");
         System.out.println("\nInitialisation du visiteur : ");
-        VisiteurRecursifConsole visitor = new VisiteurRecursifConsole();
+        Visitor visitor = new VisiteurRecursifConsole();
         System.out.println("\nVisite de l'opération : ");
         operation.accept(visitor);
         System.out.println("!!!! Le visiteur n'a pas retourné de bon résultat parce que les méthodes visitDiv/Sub/Mult ne sont pas implémentées!!!!");
@@ -64,8 +69,44 @@ public class Main {
         complexAdd.accept(visitor);
         System.out.println("\n\nTODO : implémenter les méthodes nécéssaire à l'affichage complet de l'opération");
         System.out.println("TODO : implémenter un second visiteur qui affiche l'opération sous la forme plus(3, div(4, moins(2, 1))). Cela nécéssite d'ajouter une interface Visitor et une seconde classe VisiteurRecursif2");
-
-
     }
 
+
+    private static void mainVisitorSimple() {
+        System.out.println("---------\n-------\n------------ Visitor Simple ------------" );
+        System.out.println("Initialisation de l'opération à visiter : ");
+        // (3+(4/(2-1)))
+        Valuable operation = new Add(new Value(3), new Div(new Value(4), new Sub(new Value(2), new Value(1))));
+        System.out.println(operation);
+        System.out.println("La valeur de operation est : " +operation.getValue());
+
+        System.out.println("\n---------------------------------");
+        System.out.println("Initialisation du visiteur : ");
+        Visitor visitor = new VisiteurSimpleConsole();
+        System.out.println("Visite de l'opération : ");
+        operation.accept(visitor);
+
+        System.out.println("\nAddition complexe :");
+        Valuable complexAdd = new Add(new Add(new Value(4), new Add(new Value(2), new Value(1))), new Add(new Value(30), new Value(11)));
+        complexAdd.accept(visitor);
+    }
+
+    private static void mainVisitorSimpleConsole2() {
+        System.out.println("---------\n-------\n------------ Visitor Simple 2------------" );
+        System.out.println("Initialisation de l'opération à visiter : ");
+        // (3+(4/(2-1)))
+        Valuable operation = new Add(new Value(3), new Div(new Value(4), new Sub(new Value(2), new Value(1))));
+        System.out.println(operation);
+        System.out.println("La valeur de operation est : " +operation.getValue());
+
+        System.out.println("\n---------------------------------");
+        System.out.println("Initialisation du visiteur : ");
+        Visitor visitor = new VisiteurSimpleConsole2();
+        System.out.println("Visite de l'opération : ");
+        operation.accept(visitor);
+
+        System.out.println("\nAddition complexe :");
+        Valuable complexAdd = new Add(new Add(new Value(4), new Add(new Value(2), new Value(1))), new Add(new Value(30), new Value(11)));
+        complexAdd.accept(visitor);
+    }
 }

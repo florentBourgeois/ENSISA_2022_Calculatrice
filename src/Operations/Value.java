@@ -1,6 +1,6 @@
 package Operations;
 
-import Operations.Visitors.VisiteurRecursifConsole;
+import Operations.Visitors.Visitor;
 
 public class Value implements Valuable {
     private double value;
@@ -15,7 +15,7 @@ public class Value implements Valuable {
     }
 
     @Override
-    public void accept(VisiteurRecursifConsole visitor) {
+    public void accept(Visitor visitor) {
         visitor.visitValue(this);
     }
 
