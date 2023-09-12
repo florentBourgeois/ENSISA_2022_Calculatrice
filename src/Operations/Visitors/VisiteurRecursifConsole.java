@@ -1,6 +1,7 @@
 package Operations.Visitors;
 
 import Operations.*;
+import Operations.adapter.Bool2Valuable;
 
 public class VisiteurRecursifConsole implements Visitor{
     public void visitValue(Value v) {
@@ -27,6 +28,11 @@ public class VisiteurRecursifConsole implements Visitor{
     @Override
     public void visitDiv(Div div) {
         System.out.println("div not implemented");
+    }
+
+    @Override
+    public void visitBool2Valuable(Bool2Valuable bool2Valuable) {
+        System.out.println("bool2valuable not implemented");
     }
 
     public static void main(String[] args) {

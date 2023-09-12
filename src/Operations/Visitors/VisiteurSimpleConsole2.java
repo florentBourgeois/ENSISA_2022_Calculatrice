@@ -1,6 +1,7 @@
 package Operations.Visitors;
 
 import Operations.*;
+import Operations.adapter.Bool2Valuable;
 
 public class VisiteurSimpleConsole2 implements Visitor {
 
@@ -44,5 +45,10 @@ public class VisiteurSimpleConsole2 implements Visitor {
         System.out.print(", ");
         op.getB().accept(this);
         System.out.print(")");
+    }
+
+    @Override
+    public void visitBool2Valuable(Bool2Valuable bool2Valuable) {
+        System.out.println(bool2Valuable.getValue());
     }
 }

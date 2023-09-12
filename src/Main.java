@@ -3,6 +3,8 @@ import Operations.Visitors.VisiteurRecursifConsole;
 import Operations.Visitors.VisiteurSimpleConsole;
 import Operations.Visitors.VisiteurSimpleConsole2;
 import Operations.Visitors.Visitor;
+import Operations.adapter.Bool2Valuable;
+import Operations.adapter.MyBoolean;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +15,8 @@ public class Main {
         mainVisitorSimple();
 
         mainVisitorSimpleConsole2();
+
+        mainAdapter();
 
     }
 
@@ -107,5 +111,22 @@ public class Main {
         System.out.println("\nAddition complexe :");
         Valuable complexAdd = new Add(new Add(new Value(4), new Add(new Value(2), new Value(1))), new Add(new Value(30), new Value(11)));
         complexAdd.accept(visitor);
+    }
+
+    private static void mainAdapter() {
+        System.out.println("---------\n-------\n------------ Adapter------------" );
+        System.out.println("Initialisation de l'opération booleenne : ");
+        // true
+        MyBoolean bool = new MyBoolean(true);
+        Valuable operation = new Bool2Valuable(bool);
+        System.out.println(operation);
+        System.out.println("La valeur de operation est : " +operation.getValue());
+
+        System.out.println("\n---------------------------------");
+        System.out.println("Initialisation du visiteur : ");
+        Visitor visitor = new VisiteurSimpleConsole2();
+        System.out.println("Visite de l'opération : ");
+        operation.accept(visitor);
+
     }
 }
